@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Favour Atilade | Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: #161b22;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    p {
+      color: #8b949e;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .repo {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: 0.2s;
+    }
+
+    .repo:hover {
+      transform: translateY(-3px);
+      border-color: #58a6ff;
+    }
+
+    .repo a {
+      text-decoration: none;
+      color: #58a6ff;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #8b949e;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Favour Atilade</h1>
+  <p>My GitHub Projects</p>
+</header>
+
+<div class="container" id="repos">
+  <p>Loading repositories...</p>
+</div>
+
+<footer>
+  <p>© 2026 Favour Atilade</p>
+</footer>
+
+<script>
+  const username = "Fettuccine1738";
+  const repoContainer = document.getElementById("repos");
+
+  fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+    .then(res => res.json())
+    .then(data => {
+      repoContainer.innerHTML = "";
+
+      data.forEach(repo => {
+        const div = document.createElement("div");
+        div.className = "repo";
+
+        div.innerHTML = `
+          <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+          <p>${repo.description || "No description provided."}</p>
+          <div class="meta">
+            ⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count} | 🧠 ${repo.language || "N/A"}
+          </div>
+        `;
+
+        repoContainer.appendChild(div);
+      });
+    })
+    .catch(err => {
+      repoContainer.innerHTML = "<p>Failed to load repositories.</p>";
+      console.error(err);
+    });
+</script>
+
+</body>
+</html>
