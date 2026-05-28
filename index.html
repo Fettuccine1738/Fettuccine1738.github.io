@@ -1,119 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Favour Atilade | Projects</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favour F. Atilade — Software Engineer </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --bg:       #fbf1c7;
+      --bg1:      #ebdbb2;
+      --bg2:      #d5c4a1;
+      --bg3:      #bdae93;
+      --bg4:      #a89984;
+      --fg:       #3c3836;
+      --fg1:      #504945;
+      --fg2:      #665c54;
+      --red:      #cc241d;
+      --green:    #98971a;
+      --yellow:   #d79921;
+      --blue:     #458588;
+      --purple:   #b16286;
+      --aqua:     #689d6a;
+      --orange:   #d65d0e;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Instrument Sans', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+      --max-w: 860px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0d1117;
-      color: #c9d1d9;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.6;
     }
 
-    header {
-      padding: 2rem;
-      text-align: center;
-      background: #161b22;
+    /* ── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1.5px solid var(--bg2);
+      z-index: 100;
+      padding: 0 24px;
     }
-
-    h1 {
-      margin: 0;
-      font-size: 2.2rem;
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
     }
-
-    p {
-      color: #8b949e;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    .repo {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      transition: 0.2s;
-    }
-
-    .repo:hover {
-      transform: translateY(-3px);
-      border-color: #58a6ff;
-    }
-
-    .repo a {
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--fg);
       text-decoration: none;
-      color: #58a6ff;
-      font-size: 1.2rem;
-      font-weight: bold;
+    }
+    .nav-logo em { font-style: italic; color: var(--orange); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    /* ── SECTIONS ───────────────────────────────────────────── */
+    section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    section + section {
+      border-top: 1.5px solid var(--bg2);
     }
 
-    .meta {
-      font-size: 0.9rem;
-      color: #8b949e;
-      margin-top: 0.5rem;
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg2);
+      margin-bottom: 8px;
     }
 
-    footer {
+    /* ── HERO ───────────────────────────────────────────────── */
+    #hero {
+      padding-top: 88px;
+      padding-bottom: 88px;
+    }
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg1);
+      border: 1.5px solid var(--bg2);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--green);
+      margin-bottom: 28px;
+    }
+    .hero-status .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--orange); }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--fg1);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--fg2);
+    }
+    .hero-meta-item .icon {
+      width: 18px; height: 18px;
+      opacity: 0.6;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 12px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .hero-cta:hover { background: var(--orange); transform: translateY(-1px); }
+    .hero-cta-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 12px 22px;
+      border-radius: 9px;
+      border: 1.5px solid var(--bg3);
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .hero-cta-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ── ABOUT ──────────────────────────────────────────────── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-avatar {
+      background: var(--yellow);
+      border-radius: 16px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--fg);
+      max-width: 200px;
+    }
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .about-text p {
+      font-size: 15px;
+      color: var(--fg1);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    /* ── SKILLS ─────────────────────────────────────────────── */
+    #skills .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .skill-tag {
+      background: var(--bg1);
+      color: var(--fg1);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--bg2);
+      cursor: default;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .skill-tag:hover { background: var(--orange); color: var(--bg); border-color: var(--orange); }
+    .skill-tag.blue   { background: var(--blue);   color: var(--bg); border-color: var(--blue); }
+    .skill-tag.purple { background: var(--purple); color: var(--bg); border-color: var(--purple); }
+    #skills h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+
+    /* ── WORK ───────────────────────────────────────────────── */
+    #work h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .work-item {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1.5px solid var(--bg2);
+      text-decoration: none;
+      color: var(--fg);
+      transition: background 0.15s;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .work-item:first-child { border-top: 1.5px solid var(--bg2); }
+    .work-item:hover .work-title { color: var(--orange); }
+    .work-item:hover .work-arrow { opacity: 1; transform: translateX(3px); }
+    .work-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .work-icon.blue   { background: var(--blue); }
+    .work-icon.purple { background: var(--purple); }
+    .work-icon.green  { background: var(--green); }
+    .work-icon.red    { background: var(--red); }
+    .work-icon.yellow { background: var(--yellow); }
+    .work-body { flex: 1; min-width: 0; }
+    .work-category { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg2); margin-bottom: 2px; }
+    .work-title { font-family: var(--font-display); font-size: 20px; line-height: 1.2; margin-bottom: 5px; transition: color 0.15s; }
+    .work-desc { font-size: 13px; color: var(--fg2); line-height: 1.55; }
+    .work-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .work-tag { font-family: var(--font-mono); font-size: 10px; padding: 3px 8px; border-radius: 5px; background: var(--bg2); color: var(--fg2); }
+    .work-arrow {
+      font-size: 18px;
+      color: var(--orange);
+      opacity: 0;
+      transition: opacity 0.15s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    /* ── QUOTE ──────────────────────────────────────────────── */
+    #quote-section {
+      background: var(--aqua);
+      border-top: none;
+      padding: 0;
+    }
+    #quote-section .quote-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 56px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .q-mark { font-family: var(--font-display); font-size: 100px; line-height: 0.6; color: rgba(251,241,199,0.25); flex-shrink: 0; }
+    .q-text { font-family: var(--font-display); font-style: italic; font-size: 20px; line-height: 1.6; color: var(--bg); }
+    .q-cite { display: block; font-style: normal; font-size: 12px; font-family: var(--font-mono); color: rgba(251,241,199,0.65); margin-top: 10px; }
+
+    /* ── CONTACT ────────────────────────────────────────────── */
+    #contact {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: #8b949e;
+    }
+    #contact h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+    #contact h2 em { font-style: italic; color: var(--orange); }
+    #contact p {
+      font-size: 15px;
+      color: var(--fg1);
+      max-width: 440px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      border-top: 1.5px solid var(--bg2);
+      padding: 28px 24px;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--fg2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--fg2);
+    }
+
+    /* ── FADE-IN ─────────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      #about .about-grid { grid-template-columns: 1fr; }
+      .about-avatar { max-width: 120px; font-size: 48px; }
+      .work-item { grid-template-columns: 44px 1fr; }
+      .work-arrow { display: none; }
+      .hero-meta { gap: 14px; }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Favour Atilade</h1>
-  <p>My GitHub Projects</p>
-</header>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Favour <em>Atilade </em></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<div class="container" id="repos">
-  <p>Loading repositories...</p>
-</div>
+  <!-- HERO -->
+  <section id="hero">
+    <!-- <div class="hero-status fade-in">
+      <span class="dot"></span>
+      Available for freelance work
+    </div> -->
+    <h1 class="hero-h1 fade-in" style="transition-delay:0.1s">
+      Designer &<br><em>Developer</em>
+    </h1>
+    <p class="hero-sub fade-in" style="transition-delay:0.2s">
+      I build interfaces that live at the intersection of form and function — clean, accessible, and built to last.
+    </p>
+    <div class="hero-meta fade-in" style="transition-delay:0.25s; margin-bottom: 36px;">
+      <span class="hero-meta-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Taipei · UTC +08:00
+      </span>
+      <span class="hero-meta-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        5 years experience
+      </span>
+    </div>
+    <div class="fade-in" style="transition-delay:0.3s; display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="#work" class="hero-cta">View my work →</a>
+      <a href="#contact" class="hero-cta-ghost">Get in touch</a>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2026 Favour Atilade</p>
-</footer>
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label fade-in">About me</p>
+    <div class="about-grid">
+      <div class="fade-in" style="transition-delay:0.05s;">
+        <div class="about-avatar">F.A</div>
+      </div>
+      <div class="about-text fade-in" style="transition-delay:0.1s;">
+        <h2>I design with intent, build with care.</h2>
+        <p>I'm a designer and developer who lives at the intersection of form and function. I believe good design is invisible — it just <em>works</em>.</p>
+        <p>Five years shipping products for startups, agencies, and solo clients across three continents. I care deeply about craft, clarity, and code that lasts.</p>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const username = "Fettuccine1738";
-  const repoContainer = document.getElementById("repos");
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label fade-in">What I work with</p>
+    <h2 class="fade-in" style="font-family:var(--font-display); font-size:32px; margin-bottom:4px; transition-delay:0.05s">Skills</h2>
+    <div class="skills-list fade-in" style="transition-delay:0.1s">
+      <span class="skill-tag blue">Java</span>
+      <span class="skill-tag">Rust</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag purple">Systems engineering</span>
+      <span class="skill-tag">Distributed systems</span>
+      <span class="skill-tag">Typescript</span>
+      <span class="skill-tag">AI/ML</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag purple">Technical writing</span>
+    </div>
+  </section>
 
-  fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-    .then(res => res.json())
-    .then(data => {
-      repoContainer.innerHTML = "";
+  <!-- WORK -->
+  <section id="work">
+    <p class="section-label fade-in">Selected work</p>
+    <h2 class="fade-in" style="transition-delay:0.05s">Projects</h2>
+    <div class="work-grid fade-in" style="transition-delay:0.1s">
 
-      data.forEach(repo => {
-        const div = document.createElement("div");
-        div.className = "repo";
-
-        div.innerHTML = `
-          <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-          <p>${repo.description || "No description provided."}</p>
-          <div class="meta">
-            ⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count} | 🧠 ${repo.language || "N/A"}
+      <a class="work-item" href="https://github.com/Fettuccine1738/rlox" target="_blank" rel="noopener">
+        <div class="work-icon blue">🦀</div>
+        <div class="work-body">
+          <div class="work-category">Virtual-machine</div>
+          <div class="work-title">Rlox</div>
+          <div class="work-desc">Real-time analytics platform with adaptive data visualization for financial teams.</div>
+          <div class="work-tags">
+            <span class="work-tag">Rust</span>
+            <span class="work-tag">Github-Actions</span>
+            <span class="work-tag">Docker</span>
+            <span class="work-tag">Figma</span>
           </div>
-        `;
+        </div>
+        <span class="work-arrow">→</span>
+      </a>
 
-        repoContainer.appendChild(div);
-      });
-    })
-    .catch(err => {
-      repoContainer.innerHTML = "<p>Failed to load repositories.</p>";
-      console.error(err);
-    });
-</script>
+      <a class="work-item" href="https://github.com/Fettuccine1738/ChessEngine" target="_blank" rel="noopener">
+        <div class="work-icon purple">♟️</div>
+        <div class="work-body">
+          <div class="work-category">Chess</div>
+          <div class="work-title">ChessEngine</div>
+          <div class="work-desc">A Chess engine implementation in Java using techniques and knowledge from <chessprogramming class="org"></chessprogramming>
+            The engine can be used to search moves up to any depth and to evaluate statistics. It uses alpha-beta search and a simple evaluation function
+            for move selection.
+          </div>
+          <div class="work-tags">
+            <span class="work-tag">vanilla</span>
+            <span class="work-tag">AI: alpha-beta</span>
+          </div>
+        </div>
+        <span class="work-arrow">→</span>
+      </a>
 
+      <a class="work-item" href="https://github.com/Ohbra/BachelorApp" target="_blank" rel="noopener">
+        <div class="work-icon green">📱</div>
+        <div class="work-body">
+          <div class="work-category">Web-application</div>
+          <div class="work-title">Thesium</div>
+          <div class="work-desc">Web application to connect Professors, companies and students searching for supervisors and topics.</div>
+          <div class="work-tags">
+            <span class="work-tag">Vercel</span>
+            <span class="work-tag">Supabase</span>
+            <span class="work-tag">Typescript</span>
+            <span class="work-tag">Next-js</span>
+          </div>
+        </div>
+        <span class="work-arrow">→</span>
+      </a>
+
+      <a class="work-item" href="https://github.com/RMehdid/EA-Twin" target="_blank" rel="noopener">
+        <div class="work-icon red">🧠</div>
+        <div class="work-body">
+          <div class="work-category">AI/ML</div>
+          <div class="work-title">EA-Twin</div>
+          <div class="work-desc">Analysis of the robustness of EA's sports FIFA as digital twin for real life football.</div>
+          <div class="work-tags">
+            <span class="work-tag">AI/ML</span>
+            <span class="work-tag">Python</span>
+            <span class="work-tag">Jupyter Notebook</span>
+          </div>
+        </div>
+        <span class="work-arrow">→</span>
+      </a>
+
+      <div class="work-item">
+        <div class="work-icon yellow">✍️</div>
+        <div class="work-body">
+          <div class="work-category">Publication</div>
+          <div class="work-title">Quill Magazine</div>
+          <div class="work-desc">Design and development of a digital literary magazine with bespoke typography and long-form reading UX.</div>
+          <div class="work-tags">
+            <span class="work-tag">Editorial</span>
+            <span class="work-tag">Next.js</span>
+            <span class="work-tag">CMS</span>
+          </div>
+        </div>
+        <span class="work-arrow">→</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- My favourite poem  -->
+  <div id="quote-section">
+    <div class="quote-inner">
+      <div class="q-mark">"</div>
+      <blockquote class="q-text">
+        Stand Still, Stand still 
+        The trees ahead and the bushes beside you are not lost
+        Wherever you are is called here 
+        and you must treat it as a powerful stranger.
+        You must ask permission to know it and be known.
+
+        The forest breathes, listen
+        It answers, I have made this place around you.
+        If you leave, you may come back again saying 'Here'
+
+        No two trees are the same to Raven
+        No two branches the same to Wren.
+        If what a tree or bush does is lost on you
+        (Then) you are surely lost.
+
+        Stand still, the forest knows where you are 
+        you must let it find you.
+        <cite class="q-cite">— David Wagoner</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label fade-in">Get in touch</p>
+    <h2 class="fade-in" style="transition-delay:0.05s">Let's build something <em>together.</em></h2>
+    <p class="fade-in" style="transition-delay:0.1s">Whether you have a project in mind or just want to say hello, my inbox is always open.</p>
+    <div class="contact-links fade-in" style="transition-delay:0.15s">
+      <a href="mailto:alex@example.com" class="hero-cta">fehintoluwaAtilade@proton.me→</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://github.com/Fettuccine1738">GitHub</a>
+        <a href="#">Dribbble</a>
+        <a href="https://www.linkedin.com/in/favour-atilade-174412307/">LinkedIn</a>
+        <a href="#">Read.cv</a>
+      </div>
+      <span class="footer-copy">© 2025 Favour Fehintoluwa Atilade</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
