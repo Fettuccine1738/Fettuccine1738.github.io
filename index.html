@@ -149,7 +149,7 @@
       display: flex;
       align-items: center;
       gap: 24px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
     .hero-meta-item {
       display: flex;
@@ -439,6 +439,14 @@
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         5 years experience
       </span>
+      <span class="hero-meta-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10L12 5 2 10l10 5 10-5z"/>
+          <path d="M6 12.5v4c0 1.5 3 2.5 6 2.5s6-1 6-2.5v-4"/>
+          <path d="M22 10v6"/>
+        </svg>
+        University of Applied Sciences Augsburg, Germany | Yuan Ze University Taoyuan, Taiwan
+      </span>
     </div>
     <div class="fade-in" style="transition-delay:0.3s; display:flex; gap:12px; flex-wrap:wrap;">
       <a href="#work" class="hero-cta">View my work →</a>
@@ -467,7 +475,7 @@
     <h2 class="fade-in" style="font-family:var(--font-display); font-size:32px; margin-bottom:4px; transition-delay:0.05s">Skills</h2>
     <div class="skills-list fade-in" style="transition-delay:0.1s">
       <span class="skill-tag blue">Java</span>
-      <span class="skill-tag green">Rust</span>
+      <span class="skill-tag blue">Rust</span>
       <span class="skill-tag">Git</span>
       <span class="skill-tag">CI/CD</span>
       <span class="skill-tag">Docker</span>
