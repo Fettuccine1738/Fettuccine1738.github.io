@@ -290,6 +290,10 @@
       font-size: 22px;
       flex-shrink: 0;
     }
+    .work-icon svg {
+      width: 64px;
+      height: 64px;
+    }
     .work-icon.blue   { background: var(--blue); }
     .work-icon.purple { background: var(--purple); }
     .work-icon.green  { background: var(--green); }
@@ -497,7 +501,12 @@
     <div class="work-grid fade-in" style="transition-delay:0.1s">
 
       <a class="work-item" href="https://github.com/Fettuccine1738/rlox" target="_blank" rel="noopener">
-        <div class="work-icon blue">🦀</div>
+        <div class="work-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <path d="M9 9h6M9 12h6M9 15h6"/>
+          </svg>
+        </div>
         <div class="work-body">
           <div class="work-category">Virtual-machine</div>
           <div class="work-title">Rlox</div>
@@ -512,7 +521,12 @@
       </a>
 
       <a class="work-item" href="https://github.com/Fettuccine1738/ChessEngine" target="_blank" rel="noopener">
-        <div class="work-icon purple">♟️</div>
+        <div class="work-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M8 20h8"/>
+            <path d="M9 20v-3c0-2 2-3 4-5 2-2 1-5-1-6l1-2-3-1-2 3"/>
+          </svg>
+        </div>
         <div class="work-body">
           <div class="work-category">Chess</div>
           <div class="work-title">ChessEngine</div>
@@ -529,7 +543,15 @@
       </a>
 
       <a class="work-item" href="https://github.com/Ohbra/BachelorApp" target="_blank" rel="noopener">
-        <div class="work-icon green">📱</div>
+        <div class="work-icon purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="8" cy="8" r="3"/>
+            <circle cx="16" cy="8" r="3"/>
+            <path d="M3 19c0-3 2-5 5-5"/>
+            <path d="M21 19c0-3-2-5-5-5"/>
+            <path d="M8 8h8"/>
+          </svg>
+        </div>
         <div class="work-body">
           <div class="work-category">Web-application</div>
           <div class="work-title">Thesium</div>
@@ -545,7 +567,19 @@
       </a>
 
       <a class="work-item" href="https://github.com/RMehdid/EA-Twin" target="_blank" rel="noopener">
-        <div class="work-icon red">🧠</div>
+        <div class="work-icon red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="6" cy="6" r="2"/>
+            <circle cx="18" cy="6" r="2"/>
+            <circle cx="12" cy="12" r="2"/>
+            <circle cx="6" cy="18" r="2"/>
+            <circle cx="18" cy="18" r="2"/>
+            <path d="M8 6l2.5 4"/>
+            <path d="M16 6l-2.5 4"/>
+            <path d="M8 18l2.5-4"/>
+            <path d="M16 18l-2.5-4"/>
+          </svg>
+        </div>
         <div class="work-body">
           <div class="work-category">AI/ML</div>
           <div class="work-title">EA-Twin</div>
@@ -560,16 +594,21 @@
       </a>
 
       <div class="work-item">
-        <div class="work-icon yellow">✍️</div>
+        <div class="work-icon yellow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 4c-6 1-10 5-12 11"/>
+            <path d="M8 15l-4 5 6-2"/>
+            <path d="M13 7c1 2 2 3 4 4"/>
+          </svg>
+        </div>
         <div class="work-body">
           <div class="work-category">Publication</div>
-          <div class="work-title">Quill Magazine</div>
+          <div class="work-title">(Continuous) Sign Language Translation / Recognition</div>
           <div class="work-desc">README: Currently working on a publication. This page is reserved for that.</div>
           <div class="work-tags">
-            <span class="work-tag">Editorial</span>
-            <span class="work-tag">Pytorch</span>
             <span class="work-tag">AI/ML</span>
-            <span class="work-tag">Tensorboard</span>
+            <span class="work-tag">Computer vision</span>
+            <span class="work-tag">Pytorch</span>
           </div>
         </div>
         <span class="work-arrow">→</span>
